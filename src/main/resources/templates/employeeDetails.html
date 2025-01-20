@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Details</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 25px 0;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<h1>Employee Details</h1>
+
+<div th:if="${employee}">
+    <table>
+        <tr>
+            <th>Employee ID</th>
+            <td th:text="${employee.id}"></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td th:text="${employee.employeeName}"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td th:text="${employee.employeeEmail}"></td>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td th:text="${employee.location}"></td>
+        </tr>
+    </table>
+</div>
+
+<div th:if="${employee == null}">
+    <p>No employee details found.</p>
+</div>
+
+<a href="/displayAll">Back to Employee List</a>
+
+</body>
+</html>
